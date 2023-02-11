@@ -1,0 +1,18 @@
+web01 ansible_host="" 
+web02 ansible_host="" 
+db01 ansible_host="" 
+
+[websrv]
+web01
+web02
+
+[dbsrv]
+db01
+
+[us_east_1:children]
+websrv
+dbsrv
+
+[us_east_1:vars]
+ansible_user=centos
+ansible_ssh_private_key=key.pem
